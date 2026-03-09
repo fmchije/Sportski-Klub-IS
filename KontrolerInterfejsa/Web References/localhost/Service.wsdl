@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="localhost" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="localhost" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="localhost">
+      <s:element name="VratiNovuSifruZaProizvod">
+        <s:complexType />
+      </s:element>
+      <s:element name="VratiNovuSifruZaProizvodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VratiNovuSifruZaProizvodResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VratiSveProizvode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proizvod" type="tns:Proizvod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Proizvod">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SifraProizvoda" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Naziv" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Cena" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="RokTrajanja" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VratiSveProizvodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VratiSveProizvodeResult" type="tns:ArrayOfProizvod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProizvod">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Proizvod" nillable="true" type="tns:Proizvod" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UbaciProizvod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proizvod" type="tns:Proizvod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UbaciProizvodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UbaciProizvodResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AzurirajProizvod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proizvod" type="tns:Proizvod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AzurirajProizvodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AzurirajProizvodResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObrisiProizvod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proizvod" type="tns:Proizvod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObrisiProizvodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ObrisiProizvodResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VratiProizvod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proizvod" type="tns:Proizvod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VratiProizvodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VratiProizvodResult" type="tns:Proizvod" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VratiNovuSifruZaRacun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rac" type="tns:Racun" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Racun">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BrojRacuna" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UkupnaVrednost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Storniran" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="StavkeRacuna" type="tns:ArrayOfStavkaRacuna" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStavkaRacuna">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StavkaRacuna" nillable="true" type="tns:StavkaRacuna" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StavkaRacuna">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BrojRacuna" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RedniBroj" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Kolicina" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Vrednost" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="SifraProizvoda" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="VratiNovuSifruZaRacunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VratiNovuSifruZaRacunResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VratiRacun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rac" type="tns:Racun" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VratiRacunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VratiRacunResult" type="tns:Racun" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UbaciRacun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rac" type="tns:Racun" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UbaciRacunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UbaciRacunResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AzurirajRacun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rac" type="tns:Racun" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AzurirajRacunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AzurirajRacunResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StornirajRacun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rac" type="tns:Racun" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StornirajRacunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StornirajRacunResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="VratiNovuSifruZaProizvodSoapIn">
+    <wsdl:part name="parameters" element="tns:VratiNovuSifruZaProizvod" />
+  </wsdl:message>
+  <wsdl:message name="VratiNovuSifruZaProizvodSoapOut">
+    <wsdl:part name="parameters" element="tns:VratiNovuSifruZaProizvodResponse" />
+  </wsdl:message>
+  <wsdl:message name="VratiSveProizvodeSoapIn">
+    <wsdl:part name="parameters" element="tns:VratiSveProizvode" />
+  </wsdl:message>
+  <wsdl:message name="VratiSveProizvodeSoapOut">
+    <wsdl:part name="parameters" element="tns:VratiSveProizvodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UbaciProizvodSoapIn">
+    <wsdl:part name="parameters" element="tns:UbaciProizvod" />
+  </wsdl:message>
+  <wsdl:message name="UbaciProizvodSoapOut">
+    <wsdl:part name="parameters" element="tns:UbaciProizvodResponse" />
+  </wsdl:message>
+  <wsdl:message name="AzurirajProizvodSoapIn">
+    <wsdl:part name="parameters" element="tns:AzurirajProizvod" />
+  </wsdl:message>
+  <wsdl:message name="AzurirajProizvodSoapOut">
+    <wsdl:part name="parameters" element="tns:AzurirajProizvodResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObrisiProizvodSoapIn">
+    <wsdl:part name="parameters" element="tns:ObrisiProizvod" />
+  </wsdl:message>
+  <wsdl:message name="ObrisiProizvodSoapOut">
+    <wsdl:part name="parameters" element="tns:ObrisiProizvodResponse" />
+  </wsdl:message>
+  <wsdl:message name="VratiProizvodSoapIn">
+    <wsdl:part name="parameters" element="tns:VratiProizvod" />
+  </wsdl:message>
+  <wsdl:message name="VratiProizvodSoapOut">
+    <wsdl:part name="parameters" element="tns:VratiProizvodResponse" />
+  </wsdl:message>
+  <wsdl:message name="VratiNovuSifruZaRacunSoapIn">
+    <wsdl:part name="parameters" element="tns:VratiNovuSifruZaRacun" />
+  </wsdl:message>
+  <wsdl:message name="VratiNovuSifruZaRacunSoapOut">
+    <wsdl:part name="parameters" element="tns:VratiNovuSifruZaRacunResponse" />
+  </wsdl:message>
+  <wsdl:message name="VratiRacunSoapIn">
+    <wsdl:part name="parameters" element="tns:VratiRacun" />
+  </wsdl:message>
+  <wsdl:message name="VratiRacunSoapOut">
+    <wsdl:part name="parameters" element="tns:VratiRacunResponse" />
+  </wsdl:message>
+  <wsdl:message name="UbaciRacunSoapIn">
+    <wsdl:part name="parameters" element="tns:UbaciRacun" />
+  </wsdl:message>
+  <wsdl:message name="UbaciRacunSoapOut">
+    <wsdl:part name="parameters" element="tns:UbaciRacunResponse" />
+  </wsdl:message>
+  <wsdl:message name="AzurirajRacunSoapIn">
+    <wsdl:part name="parameters" element="tns:AzurirajRacun" />
+  </wsdl:message>
+  <wsdl:message name="AzurirajRacunSoapOut">
+    <wsdl:part name="parameters" element="tns:AzurirajRacunResponse" />
+  </wsdl:message>
+  <wsdl:message name="StornirajRacunSoapIn">
+    <wsdl:part name="parameters" element="tns:StornirajRacun" />
+  </wsdl:message>
+  <wsdl:message name="StornirajRacunSoapOut">
+    <wsdl:part name="parameters" element="tns:StornirajRacunResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServisSoap">
+    <wsdl:operation name="VratiNovuSifruZaProizvod">
+      <wsdl:input message="tns:VratiNovuSifruZaProizvodSoapIn" />
+      <wsdl:output message="tns:VratiNovuSifruZaProizvodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VratiSveProizvode">
+      <wsdl:input message="tns:VratiSveProizvodeSoapIn" />
+      <wsdl:output message="tns:VratiSveProizvodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UbaciProizvod">
+      <wsdl:input message="tns:UbaciProizvodSoapIn" />
+      <wsdl:output message="tns:UbaciProizvodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AzurirajProizvod">
+      <wsdl:input message="tns:AzurirajProizvodSoapIn" />
+      <wsdl:output message="tns:AzurirajProizvodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObrisiProizvod">
+      <wsdl:input message="tns:ObrisiProizvodSoapIn" />
+      <wsdl:output message="tns:ObrisiProizvodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VratiProizvod">
+      <wsdl:input message="tns:VratiProizvodSoapIn" />
+      <wsdl:output message="tns:VratiProizvodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VratiNovuSifruZaRacun">
+      <wsdl:input message="tns:VratiNovuSifruZaRacunSoapIn" />
+      <wsdl:output message="tns:VratiNovuSifruZaRacunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VratiRacun">
+      <wsdl:input message="tns:VratiRacunSoapIn" />
+      <wsdl:output message="tns:VratiRacunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UbaciRacun">
+      <wsdl:input message="tns:UbaciRacunSoapIn" />
+      <wsdl:output message="tns:UbaciRacunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AzurirajRacun">
+      <wsdl:input message="tns:AzurirajRacunSoapIn" />
+      <wsdl:output message="tns:AzurirajRacunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StornirajRacun">
+      <wsdl:input message="tns:StornirajRacunSoapIn" />
+      <wsdl:output message="tns:StornirajRacunSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServisSoap" type="tns:ServisSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VratiNovuSifruZaProizvod">
+      <soap:operation soapAction="localhost/VratiNovuSifruZaProizvod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VratiSveProizvode">
+      <soap:operation soapAction="localhost/VratiSveProizvode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UbaciProizvod">
+      <soap:operation soapAction="localhost/UbaciProizvod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AzurirajProizvod">
+      <soap:operation soapAction="localhost/AzurirajProizvod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObrisiProizvod">
+      <soap:operation soapAction="localhost/ObrisiProizvod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VratiProizvod">
+      <soap:operation soapAction="localhost/VratiProizvod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VratiNovuSifruZaRacun">
+      <soap:operation soapAction="localhost/VratiNovuSifruZaRacun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VratiRacun">
+      <soap:operation soapAction="localhost/VratiRacun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UbaciRacun">
+      <soap:operation soapAction="localhost/UbaciRacun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AzurirajRacun">
+      <soap:operation soapAction="localhost/AzurirajRacun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StornirajRacun">
+      <soap:operation soapAction="localhost/StornirajRacun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServisSoap12" type="tns:ServisSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="VratiNovuSifruZaProizvod">
+      <soap12:operation soapAction="localhost/VratiNovuSifruZaProizvod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VratiSveProizvode">
+      <soap12:operation soapAction="localhost/VratiSveProizvode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UbaciProizvod">
+      <soap12:operation soapAction="localhost/UbaciProizvod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AzurirajProizvod">
+      <soap12:operation soapAction="localhost/AzurirajProizvod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObrisiProizvod">
+      <soap12:operation soapAction="localhost/ObrisiProizvod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VratiProizvod">
+      <soap12:operation soapAction="localhost/VratiProizvod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VratiNovuSifruZaRacun">
+      <soap12:operation soapAction="localhost/VratiNovuSifruZaRacun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VratiRacun">
+      <soap12:operation soapAction="localhost/VratiRacun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UbaciRacun">
+      <soap12:operation soapAction="localhost/UbaciRacun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AzurirajRacun">
+      <soap12:operation soapAction="localhost/AzurirajRacun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StornirajRacun">
+      <soap12:operation soapAction="localhost/StornirajRacun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Servis">
+    <wsdl:port name="ServisSoap" binding="tns:ServisSoap">
+      <soap:address location="http://localhost:4036/WebServis/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServisSoap12" binding="tns:ServisSoap12">
+      <soap12:address location="http://localhost:4036/WebServis/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

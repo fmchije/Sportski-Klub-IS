@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{13A51213-309E-4F06-9504-037A2A232346}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MiniProjekatKlas.SistemskeOperacije</RootNamespace>
+    <AssemblyName>SistemskeOperacije</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MesecGodina\VratiSveMesecGodine.cs" />
+    <Compile Include="SOCenovnik\UbaciCenovnik.cs" />
+    <Compile Include="OpstaSO.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SOCenovnik\VratiCeoCenovnik.cs" />
+    <Compile Include="SORaspored\VezbacURaspored.cs" />
+    <Compile Include="SORaspored\VratiTrenere.cs" />
+    <Compile Include="SOSport\VratiSveSportove.cs" />
+    <Compile Include="SOTermin\VratiSveTermine.cs" />
+    <Compile Include="SOTrener\SOUbaciTrenera.cs" />
+    <Compile Include="SOTrener\VratiSveTrenere.cs" />
+    <Compile Include="SOUplata\UbaciUplatu.cs" />
+    <Compile Include="SOVezbac\UbaciVezbaca.cs" />
+    <Compile Include="SOVezbac\VratiSveVezbace.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Broker\Broker.csproj">
+      <Project>{40e23d71-ad1c-4e5a-ba4b-2192adfa41f1}</Project>
+      <Name>Broker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomenskeKlase\DomenskeKlase.csproj">
+      <Project>{92BC5AC7-25E8-4307-AB38-D5259F253ABA}</Project>
+      <Name>DomenskeKlase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,2 @@
+Da bi program proradio unesite konekcioni string baze podataka
+u konfiguracionu datoteku projekta WebServis!
