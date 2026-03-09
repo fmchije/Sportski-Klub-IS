@@ -4,7 +4,11 @@
 A C# desktop application designed to manage athlete records, payments, and schedules for a sports club. This project features a multi-tier architecture using a **Web Service** for database communication.
 
 ## 📸 Screenshots
-![Main Dashboard](link-to-your-image.png)
+![Main Dashboard](./assets/screenshots/GlavnaForma.jpg)
+![Insert Athlete](./assets/screenshots/VezbaciForma.jpg)
+![PriceList](./assets/screenshots/Cenovnik.jpg)
+
+
 
 ## 🛠 Tech Stack
 * **Language:** C# (.NET)
